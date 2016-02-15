@@ -1,5 +1,5 @@
 html,body {                                                                                                           
-  background-color: white;                                                                                       
+  background-color:#E1E1E1;
   text-align:justify;                                                                                            
   text-justify: inter-word;                                                                                      
   font-family: "Free Sans" , Verdana;                                                                           
@@ -29,17 +29,28 @@ html,body {
     background-color: #585858;
 }
 
-#conteneur{
-    display:flex;
-    align-items:baseline;
+
+.doneButton {
+    background-color: #white; /* Green */
+    border: none;
+    color: black;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
+
 
 button{
     height: 50px;
     width: 100%;
     background-color: #585858;
     border:none;
-    padding: 15px 32px;
+}
+
+.selected{
+    background-color: #3E3E3E;
 }
 
 button:hover{
@@ -55,35 +66,51 @@ button:hover{
 
 .articles{
     height:100%;
-    padding: 20px;
     margin:0;
     position: absolute;
+    right:0;
+    width:85%;
+}
+
+.checkBox{
+    left:0;
+    top:0;
+    width:20%;
+    height:100%;
+}
+
+.taskDescription{
     right:0;
     width:80%;
 }
 
-/*ARTICLES*/
+.taskContent{
+}
+
+.taskTitle{
+    top:0;
+    right:0;
+    width:80%;
+}
 
 /*IMPORTANCE*/
 
 .high{
-    background-color:#FE0000;
+    border-left: solid #FE0000 5px;
 }
 
 .medium{
-    background-color:#FEE500;
+    border-left: solid #FEE500 5px;
 }
 
 .low{
-    background-color:#00C721;
+    border-left: solid #00C721 5px;
 }
 
 .article{
-    width:85%;
+    background-color:white;
     margin:20px;
     padding:10px;
-        border-style: solid;
-    border-width: 5px;
 }
 
 /*POLICE*/
