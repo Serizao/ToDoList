@@ -21,8 +21,8 @@ function printHeader(){
 function secureAccess(){                                                                                         
     session_start();                                                                                             
     if (!checkaccess()){                                                                                         
-        header('location: ./auth.php'); // on redirige vers index.php                                                 
-    exit;                                                                                                        
+        header('location: auth.php'); // on redirige vers index.php                                                 
+    exit;                                                                                                       
     }                                                                                                            
 }                                                                                                            
 

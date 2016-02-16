@@ -65,6 +65,10 @@
             $this->_endDate = $endDate;
         }
 
+        public function getImportance(){
+            return $this->_importance;
+        }   
+
         public function getFileName(){
             $filename = $this->getName();
             $filename = $filename.'.txt';

@@ -1,9 +1,16 @@
 <?php
     session_start();
+    $_SESSION = array();
+
+/* secureAccess();*/
     include_once('Includes/functions.php'); 
     include_once('Includes/DoneTask.php');
     include_once('Includes/ToDoTask.php');
-    
+
+    if (isset($_GET['action']) AND $_GET['action']=='logout'){
+        $_SESSION = array();
+    }
+
     if(isset($_POST['title'])){
         $title = $_POST['title'];
         $content = $_POST['content'];
@@ -11,9 +18,11 @@
         $endDate = $_POST['endDate'];
         new ToDoTask($title,$content,$endDate,$importance);
     }
+
     if(isset($_POST['done'])){
         ToDoTask::taskIsDone($_POST['done']);
     }
+
     if(isset($_POST['undone'])){
         DoneTask::taskIsUndone($_POST['undone']);
     }
@@ -23,7 +32,7 @@
 <div id=conteneur>
     <div class=sidebar>
         <h1 class="white title">ToDoList</h1>
-        <button onClick="login()" class="white">LAUGAUNE</button>
+        <button onClick="login()" class="sideBarButton white">LAUGAUNE</button>
         <button id="todo" class="sideBarButton white <?php if(!isset($_GET['tasksToDisplay']) || $_GET['tasksToDisplay'] !="done"){ print'selected'; } ?>">TODO</button>
         <script>
             var tdbtn = document.getElementById('todo'); 

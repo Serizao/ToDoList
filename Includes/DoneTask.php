@@ -36,26 +36,23 @@ include_once('Includes/functions.php');
             return $tasks;
         }
 
-        public function printTask(){
-            print'<div class="article '.$this->_importance.'">';
-                print'<div class ="checkBox" >';
-            print'<form action="index.php?tasksToDisplay=done" method="post">';
-                    print'<button type="submit" name="undone" value="'.$this->getName().'" class="doneButton"><i class="fa fa-ckeck-square-o fa-2x"></i></button>';
-                    print'</form>';
-                print'</div>';
-                print'<div class="taskContent">';
-                    print'<div class="taskTitle">';
-                        print $this->_title;
-                        print ' à faire pour le : ';
-                        print $this->_endDate;
-                    print'</div>';
-                    print'<div class="taskDescription">';
-                        print $this->_content;
-                    print'</div>';
-                print'</div>';
-            print'</div>';
-        }
-
+        public function printTask(){                                                                                                                                                                                               
+            print'<div class="article '.$this->getImportance().'">';                                                                                                                                                               
+                print'<div class="taskDescription">';                                                                                                                                                                              
+                    print'<div class ="checkBox" >';                                                                                                                                                                               
+                        print'<form action="index.php?tasksToDisplay=done" method="post">';                                                                                                                                                            
+                            print'<button type="submit" name="undone" value="'.$this->getName().'" class="checkBoxButton">abc</button>';                                                                                             
+                        print'</form>';                                                                                                                                                                                            
+                    print'</div>';                                                                                                                                                                                                 
+                    print'<div class="taskTitle">';                                                                                                                                                                                
+                        print $this->getTitle();                                                                                                                                                                                   
+                    print'</div>';                                                                                                                                                                                                 
+                print'</div>';                                                                                                                                                                                                     
+                print'<div class="taskContent">';                                                                                                                                                                                  
+                    print $this->getContent();                                                                                                                                                                                     
+                print'</div>';                                                                                                                                                                                                     
+            print'</div>';                                                                                                                                                                                                         
+        }           
         public function removeTask(){
             unlink('doneTasks/'.$this->getFileName());
             header('Location: index.php?tasksToDisplay=done');
