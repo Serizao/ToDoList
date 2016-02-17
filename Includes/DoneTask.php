@@ -8,6 +8,10 @@ include_once('Includes/functions.php');
             rename ('doneTasks/'.$filename.'.txt' , 'toDoTasks/'.$filename.'.txt');
         }
 
+        public static function removeTask($filename){
+            unlink('doneTasks/'.$filename.'.txt');
+            header('Location: index.php?tasksToDisplay=done');
+        }
         public static function printDoneTasks(){
             $tasks = DoneTask::listDoneTasks();
             foreach($tasks as $task){
@@ -46,16 +50,17 @@ include_once('Includes/functions.php');
                     print'</div>';                                                                                                                                                                                                 
                     print'<div class="taskTitle">';                                                                                                                                                                                
                         print $this->getTitle();                                                                                                                                                                                   
-                    print'</div>';                                                                                                                                                                                                 
+                    print'</div>';                                                                                                                                                                                                
+                    print'<div class="delete">';
+                        print'<form action="index.php?tasksToDisplay=done" method="post">';
+                            print'<button type="submit" name="delete" value="'.$this->getName().'" class="deleteButton"><img src="img/delete.png" class="img" height="15" width="15"></button>';
+                        print'</form>';
+                    print'</div>';
                 print'</div>';                                                                                                                                                                                                     
                 print'<div class="taskContent">';                                                                                                                                                                                  
                     print $this->getContent();                                                                                                                                                                                     
                 print'</div>';                                                                                                                                                                                                     
             print'</div>';                                                                                                                                                                                                         
         }           
-        public function removeTask(){
-            unlink('doneTasks/'.$this->getFileName());
-            header('Location: index.php?tasksToDisplay=done');
-        }
     }
 ?>

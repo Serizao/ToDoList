@@ -87,6 +87,16 @@ html,body {
     display: inline-block;
 }
 
+
+.deleteButton {
+    background-color: white; /* Green */
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
 .createTask{
     background-color:white;
     text-align:center;
@@ -128,6 +138,13 @@ html,body {
             margin : 0px auto;
             top:0;
             width:90%
+        }
+        .delete{
+            display:inline-block;
+            right:0;
+            top:0;
+            width:3%;
+		padding:auto;
         }
     .taskContent{
         position:static;
