@@ -39,7 +39,7 @@ include_once('Includes/Task.php');
                 print'<div class="taskDescription">';
                     print'<div class ="checkBox" >';
                         print'<form action="index.php" method="post">';
-                            print'<button type="submit" name="done" value="'.$this->getName().'" class="checkBoxButton">abc</button>';    
+                            print'<button type="submit" name="done" value="'.$this->getName().'" class="checkBoxButton"><img src="img/unchecked_checkbox.png" class="img" height="15" width="15"></button>';    
                         print'</form>';
                     print'</div>';
                     print'<div class="taskTitle">';

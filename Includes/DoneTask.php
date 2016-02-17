@@ -37,11 +37,11 @@ include_once('Includes/functions.php');
         }
 
         public function printTask(){                                                                                                                                                                                               
-            print'<div class="article '.$this->getImportance().'">';                                                                                                                                                               
+            print'<div class="article done '.$this->getImportance().'">';                                                                                                                                                               
                 print'<div class="taskDescription">';                                                                                                                                                                              
                     print'<div class ="checkBox" >';                                                                                                                                                                               
                         print'<form action="index.php?tasksToDisplay=done" method="post">';                                                                                                                                                            
-                            print'<button type="submit" name="undone" value="'.$this->getName().'" class="checkBoxButton">abc</button>';                                                                                             
+                            print'<button type="submit" name="undone" value="'.$this->getName().'" class="checkBoxButton"><img src="img/checked_checkbox.png" class="img" height="15" width="15"></button>';                                                                                             
                         print'</form>';                                                                                                                                                                                            
                     print'</div>';                                                                                                                                                                                                 
                     print'<div class="taskTitle">';                                                                                                                                                                                

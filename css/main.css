@@ -102,7 +102,12 @@ html,body {
     margin:10px;
 }
 
-    .taskDescription{
+
+.img{
+    margin: 0 auto;
+}
+
+.taskDescription{
         display: inline-block;
         border-bottom: solid #585858 1px;
         width:100%;
@@ -113,6 +118,7 @@ html,body {
             left:0;
             top:0;
             width:3%;
+		padding:auto;
         }
 
         .taskTitle{
@@ -129,6 +135,9 @@ html,body {
         height:50%;
     }
 
+.done{
+    opacity:0.6;
+}
 
 /*POLICE*/
 .free_sans,h1,h2,h3,h4,h5,h6,li,p,label {                                                                        
