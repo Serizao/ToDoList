@@ -27,9 +27,9 @@
         <body>
             <h1>Connexion</h1>
             <?php if (isset($errMsg)) { print $errMsg;} ?>
-            <p class="free_sans">Veuillez vous identifier</p>
+            <p class="free_sans">Please, logon to use</p>
             <form method="POST">
-                <input class="free_sans" name="username" placeholder="Nom d´utilisateur">
+                <input class="free_sans" name="username" placeholder="Nom d'utilisateur">
                 <input class="free_sans" name="password" placeholder="Mot de passe" type="password">
                 <input class="input" type="submit" value="Valider">
             </form>

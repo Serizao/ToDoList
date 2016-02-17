@@ -76,12 +76,24 @@ html,body {
     border-left: solid #00C721 5px;
 }
 
+.selectImportance{
+    text-align:left;
+}
 .checkBoxButton {
     background-color: white; /* Green */
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+}
+
+.createTask{
+    background-color:white;
+    text-align:center;
+    width:60%;
+    margin: auto;
+    margin-top:2%;
+    padding:10px;
 }
 
 

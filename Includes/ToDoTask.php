@@ -55,12 +55,11 @@ include_once('Includes/Task.php');
         public function toFile(){
             $fileName = 'toDoTasks/'.$this->getFileName(); 
             $taskInfos = array();
-            $taskInfos["creationDate"] = $this->_creationDate;
-            $taskInfos["endDate"] = $this->_endDate;
-            $taskInfos["title"] = $this->_title;
-            $taskInfos["importance"] = $this->_importance;
+            $taskInfos["endDate"] = $this->getEndDate();
+            $taskInfos["title"] = $this->getTitle();
+            $taskInfos["importance"] = $this->getImportance();
             $fileContent = json_encode($taskInfos)."\n";
-            $fileContent .= strip_tags($this->_content)."\n";
+            $fileContent .= strip_tags($this->getContent())."\n";
             file_put_contents($fileName , $fileContent);
         }
     }

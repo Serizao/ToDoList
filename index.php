@@ -16,7 +16,9 @@
         $content = $_POST['content'];
         $importance = $_POST['importance'];
         $endDate = $_POST['endDate'];
-        new ToDoTask($title,$content,$endDate,$importance);
+        $MyTask = new ToDoTask($title,$content,$endDate,$importance);
+        $MyTask->toFile();
+        header('Location: index.php');
     }
 
     if(isset($_POST['done'])){
@@ -53,19 +55,38 @@
                 document.location.href = 'index.php?tasksToDisplay=done';
             });
         </script>
+        <button id="create" class="sideBarButton white ">NEW</button>
+        <script>
+            var nbtn = document.getElementById('create');
+            nbtn.addEventListener('click', function() {
+                document.location.href = 'index.php?action=create';
+            });
+        </script>
     </div>
+    <div class="articles">
     <?php
-        if(isset($_GET['tasksToDisplay']) and $_GET['tasksToDisplay'] == "done"){
-            print'<div class="articles">';
-            DoneTask::printDoneTasks();
+        if(isset($_GET['action']) and $_GET['action'] == "create"){
+            print'<div class="createTask">';
+                print'<form method="post">';
+                    print'<input class"free_sans" name="title" placeholder="title"> Date:<input type="date" name="endDate"><br>';
+                    print'<input class"free_sans" name="content" placeholder="content"><br>';
+                    print'<div class="selectImportance">';
+                        print'<input type="radio" name="importance" value="low" checked>Low<br>';
+                        print'<input type="radio" name="importance" value="medium">Medium<br>';
+                        print'<input type="radio" name="importance" value="high">High<br>';
+                    print'</div>';
+                    print'<input class="input" type="submit" value="Valider">';
+                print'</form>';
             print'</div>';
+        }
+        if(isset($_GET['tasksToDisplay']) and $_GET['tasksToDisplay'] == "done"){
+            DoneTask::printDoneTasks();
         }
         else{
-            print'<div class="articles">';
             ToDoTask::printToDoTasks();
-            print'</div>';
         }
     ?>
+    </div>
 </div>
 <?php
     printFooter();
