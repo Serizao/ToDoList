@@ -88,6 +88,14 @@ html,body {
 }
 
 
+
+.editButton {
+    background-color: white; /* Green */
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
 .deleteButton {
     background-color: white; /* Green */
     border: none;
@@ -139,6 +147,15 @@ html,body {
             top:0;
             width:90%
         }
+
+        .edit{
+            display:inline-block;
+            right:0;
+            top:0;
+            width:3%;
+		padding:auto;
+        }
+
         .delete{
             display:inline-block;
             right:0;

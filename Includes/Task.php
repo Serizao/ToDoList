@@ -6,46 +6,22 @@
         private $_content;
         private $_endDate;
         private $_importance;
+        private $_id;
 
         public function __construct($title , $content, $endDate ,$importance){
+            $this->_id = uniqid();
             $this->_title = $title;
             $this->_content = $content;
             $this->_endDate = $endDate;
             $this->_importance = $importance;
         }
-
-        public static function printToDoTasks(){                                                                                                                                    
-            $tasks = listToDoTasks();                                                                                                                                 
-            foreach($tasks as $task){                                                                                                                                 
-                $task->printTask();                                                                                                                                   
-            }                                                                                                                                                         
+        
+        public function getId(){
+            return $this->_id;
         }
-
-        public static function taskIsDone($filename){                                                                                                                               
-            rename ('toDoTasks/'.$filename.'.txt' , 'doneTasks/'.$filename.'.txt');                                                                                   
+        public function setId($id){
+            $this->_id = $id;
         }
-
-        public static function getToDoTaskFromFile($filename){                                                                                                                      
-            $fileContent = file_get_contents($filename);                                                                                                              
-            $explodedContent = explode("\n", $fileContent , 2);                                                                                                       
-            $informations = json_decode($explodedContent[0],true);                                                                                                    
-            $content = $explodedContent[1];                                                                                                                           
-            $title = $informations["title"];                                                                                                                          
-            $endDate = $informations["endDate"];                                                                                                                      
-            $importance = $informations["importance"];                                                                                                                
-            return new ToDoTask($title , $content, $endDate, $importance);                                                                                            
-        }
-
-        public static function listToDoTasks(){                                                                                                                                     
-            $tasks = array();                                                                                                                                         
-            foreach(glob('./toDoTasks/*.txt') as $file){                                                                                                              
-                $task = getToDoTaskFromFile($file);                                                                                                                   
-                array_push($tasks , $task);                                                                                                                           
-            }                                                                                                                                                         
-            usort($tasks, 'date_compare');                                                                                                                            
-            return $tasks;                                                                                                                                            
-        }
-
         public function getTitle(){
             return $this->_title;
         }
@@ -75,12 +51,7 @@
             return $filename;
         }
         public function getName(){
-            $filename = $this->_title;                                                                                                                                                                                             
-            $filename = strtolower(trim($filename));                                                                                                                                                                               
-            $originCharacters = array('à','â','ç','è','é','ê','ë','ï','ô','ù');                                                                                                                                                    
-            $destinCharacters = array('a','a','c','e','e','e','e','i','o','u');                                                                                                                                                     
-            $filename = str_replace($originCharacters,$destinCharacters,$filename);                                                                                                                                                
-            $filename = preg_replace('/[^a-z0-9-]/','-',$filename);
+            $filename = $this->getId();                                                                                                                                                                                             
             return $filename;
         } 
 

@@ -6,12 +6,15 @@
     include_once('Includes/DoneTask.php');
     include_once('Includes/ToDoTask.php');
 
-    if (isset($_GET['action']) AND $_GET['action']=='logout'){
+    if(isset($_GET['action']) AND $_GET['action']=='logout'){
         $_SESSION = array();
         header('Location:index.php');
     }
-
-    if  (isset($_POST['delete'])){
+    
+    if(isset($_POST['edit'])){
+        $taskToEdit = ToDoTask::getToDoTaskFromFile('toDoTasks/'.$_POST['edit'].'.txt');
+    }
+    if(isset($_POST['delete'])){
         DoneTask::removeTask($_POST['delete']);
     }
 
@@ -20,7 +23,12 @@
         $content = $_POST['content'];
         $importance = $_POST['importance'];
         $endDate = $_POST['endDate'];
-        $MyTask = new ToDoTask($title,$content,$endDate,$importance);
+        if(isset($_POST['id'])){
+            $MyTask = ToDoTask::constructToDoTask($title,$content,$endDate,$importance,$_POST['id']);
+        }
+        else {
+            $MyTask = new ToDoTask($title,$content,$endDate,$importance);
+        }
         $MyTask->toFile();
         header('Location: index.php');
     }
@@ -37,7 +45,7 @@
 ?>
 <div id=conteneur>
     <div class=sidebar>
-        <h1 class="white title">ToDoList</h1>
+        <h1 class="white title">TouDoList</h1>
         <button id="logout" class="sideBarButton white">LOGOUT</button>
         <script>
             var lbtn = document.getElementById('logout');
@@ -69,16 +77,25 @@
     </div>
     <div class="articles">
     <?php
-        if(isset($_GET['action']) and $_GET['action'] == "create"){
+        if((isset($_GET['action']) and $_GET['action'] == "create") || isset($taskToEdit)) {
             print'<div class="createTask">';
                 print'<form method="post">';
-                    print'<input class"free_sans" name="title" placeholder="title"> Date:<input type="date" name="endDate"><br>';
-                    print'<input class"free_sans" name="content" placeholder="content"><br>';
+                    print'<input class"free_sans" name="title" placeholder="title" ';
+                        if(isset($taskToEdit)) { echo 'value="'.$taskToEdit->getTitle().'"'; }
+                    print'> Date:<input type="date" name="endDate" ';
+                        if(isset($taskToEdit)) { echo 'value="'.$taskToEdit->getEndDate().'"'; }
+                    print'><br>';
+                    print'<input class"free_sans" name="content" placeholder="content" ';
+                        if(isset($taskToEdit)) { echo 'value="'.$taskToEdit->getContent().'"'; }
+                    print'><br>';
                     print'<div class="selectImportance">';
                         print'<input type="radio" name="importance" value="low" checked>Low<br>';
                         print'<input type="radio" name="importance" value="medium">Medium<br>';
                         print'<input type="radio" name="importance" value="high">High<br>';
                     print'</div>';
+                    if(isset($taskToEdit)){
+                        print'<input type=hidden name="id" value="'.$taskToEdit->getId().'"/>';
+                    }
                     print'<input class="input" type="submit" value="Valider">';
                 print'</form>';
             print'</div>';

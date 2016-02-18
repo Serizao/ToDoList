@@ -19,6 +19,12 @@ include_once('Includes/functions.php');
             }
         }
 
+        public static function constructDoneTask($title, $content, $endDate, $importance, $id){
+            $MyTask = new DoneTask($title, $content, $endDate, $importance);
+            $MyTask->setId($id);
+            return $MyTask;
+        }   
+
         public static function getDoneTaskFromFile($filename){
             $fileContent = file_get_contents($filename);
             $explodedContent = explode("\n", $fileContent , 2);
@@ -27,7 +33,8 @@ include_once('Includes/functions.php');
             $title = $informations["title"];
             $endDate = $informations["endDate"];
             $importance = $informations["importance"];
-            return new DoneTask($title , $content, $endDate, $importance);
+            $id = $informations["id"];
+            return DoneTask::constructDoneTask($title , $content, $endDate, $importance, $id);
         }
 
         public static function listDoneTasks(){
