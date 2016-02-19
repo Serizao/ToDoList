@@ -1,13 +1,9 @@
 <?php
 include_once('Includes/Task.php');
+include_once('Includes/functions.php');
 
     class ToDoTask extends Task {
-        public static function printToDoTasks(){                                                                                                              
-            $tasks = ToDoTask::listToDoTasks();                                                                                                                         
-            foreach($tasks as $task){                                                                                                                         
-                $task->printTask();                                                                                                                           
-            }                                                                                                                                                 
-        }                                                                                                                                                     
+
         public static function taskIsDone($filename){                                                                                                         
             rename ('toDoTasks/'.$filename.'.txt' , 'doneTasks/'.$filename.'.txt');                                                                           
         }   
@@ -30,17 +26,6 @@ include_once('Includes/Task.php');
             return $MyTask;
         }
 
-        public static function listToDoTasks(){                                                                                                               
-            $tasks = array();                                                                                                                                 
-            foreach(glob('./toDoTasks/*.txt') as $file){                                                                                                      
-                $task = ToDoTask::getToDoTaskFromFile($file);                                                                                                           
-                array_push($tasks , $task);                                                                                                                   
-            }                                                                                                                                                 
-            usort($tasks, 'date_compare');                                                                                                                    
-            return $tasks;                                                                                                                                    
-        } 
-
-
         public function printTask(){
             print'<div class="article '.$this->getImportance().'">';
                 print'<div class="taskDescription">';
@@ -59,11 +44,12 @@ include_once('Includes/Task.php');
                     print'</div>';
                 print'</div>';
                 print'<div class="taskContent">';
-                    print $this->getContent();
+                    print str_replace("\n" , "<br />" ,$this->getContent());
                 print'</div>';
             print'</div>';
         }
- 
+
+
         public function toFile(){
             $fileName = 'toDoTasks/'.$this->getFileName(); 
             $taskInfos = array();

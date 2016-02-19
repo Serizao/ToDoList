@@ -13,6 +13,8 @@ function printHeader(){
     print'<meta name="viewport" content="width=device-width, initial-scale=1.0">';
     print'<meta charset="utf-8">';
     print'<link rel="stylesheet" type="text/css" href="css/main.css">';
+    print'<link rel="stylesheet" type="text/css" href="css/forms.css">';
+    print'<link rel="stylesheet" type="text/css" href="css/article.css">';
     print'<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">';
     print'<script type="text/javascript" src="js/myscript.js"></script>';
     print'</head>';

@@ -1,0 +1,90 @@
+.article{
+    border-radius:10px;
+    background-color:white;
+    margin:10px;
+}
+
+.done{
+    opacity: 0.6;
+}
+
+/*IMPORTANCE*/
+.high{
+    border-left: solid #FE0000 5px;
+}
+.medium{
+    border-left: solid #FEE500 5px;
+}
+.low{
+    border-left: solid #00C721 5px;
+}
+
+.taskDescription{                                                                                                                                                                                                                  
+  display: inline-block;                                                                                                                                                                                                     
+  border-bottom: solid #585858 1px;                                                                                                                                                                                          
+  width:100%;                                                                                                                                                                                                                
+}                                                                                                                                                                                                                              
+.checkBox{                                                                                                                                                                                                                 
+  display:inline-block;                                                                                                                                                                                                  
+  left:0;                                                                                                                                                                                                                
+  top:0;                                                                                                                                                                                                                 
+  width:3%;                                                                                                                                                                                                              
+}                                                                                                                                                                                                                          
+.taskTitle{                                                                                                                                                                                                                
+  text-align: center;                                                                                                                                                                                                    
+  display:inline-block;                                                                                                                                                                                                  
+/*  margin : 0px auto;*/
+  top:0;                                                                                                                                                                                                                 
+  width:90%                                                                                                                                                                                                              
+}                                                                                                                                                                                                                          
+.edit{                                                                                                                                                                                                                     
+  display:inline-block;                                                                                                                                                                                                  
+  right:0;                                                                                                                                                                                                               
+  top:0;                                                                                                                                                                                                                 
+  width:3%;                                                                                                                                                                                                              
+  padding:auto;                                                                                                                                                                                                              
+}                                                                                                                                                                                                                          
+.delete{                                                                                                                                                                                                                   
+  display:inline-block;                                                                                                                                                                                                  
+  right:0;                                                                                                                                                                                                               
+  top:0;                                                                                                                                                                                                                 
+  width:3%;                                                                                                                                                                                                              
+  padding:auto;                                                                                                                                                                                                              
+}                                                                                                                                                                                                                          
+.taskContent{                                                                                                                                                                                                                  
+  position:static;                                                                                                                                                                                                           
+  width:100%;                                                                                                                                                                                                                
+  height:50%;                                                                                                                                                                                                                
+}
+
+.img{
+    margin: 0 auto;
+}
+
+.selectImportance{                                                                                                                                                                                                                 
+    text-align:left;                                                                                                                                                                                                               
+}                                                                                                                                                                                                                                  
+
+.checkBoxButton {                                                                                                                                                                                                                  
+    background-color: white;
+    border: none;                                                                                                                                                                                                                  
+    text-align: center;                                                                                                                                                                                                            
+    text-decoration: none;                                                                                                                                                                                                         
+    display: inline-block;                                                                                                                                                                                                         
+}                                                                                                                                                                                                                                  
+
+.editButton {                                                                                                                                                                                                                      
+    background-color: white;                                                                                                                                                                                            
+    border: none;                                                                                                                                                                                                                  
+    text-align: center;                                                                                                                                                                                                            
+    text-decoration: none;                                                                                                                                                                                                         
+    display: inline-block;                                                                                                                                                                                                         
+}                                                                                                                                                                                                                                  
+
+.deleteButton {                                                                                                                                                                                                                    
+    background-color: white;                                                                                                                                                                                            
+    border: none;                                                                                                                                                                                                                  
+    text-align: center;                                                                                                                                                                                                            
+    text-decoration: none;                                                                                                                                                                                                         
+    display: inline-block;                                                                                                                                                                                                         
+}  
