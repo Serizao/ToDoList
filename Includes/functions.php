@@ -11,6 +11,7 @@ function printHeader(){
     print'<head>';
     print'<title>ToDoList</title>';
     print'<meta name="viewport" content="width=device-width, initial-scale=1.0">';
+    print'<meta charset="utf-8">';
     print'<link rel="stylesheet" type="text/css" href="css/main.css">';
     print'<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">';
     print'<script type="text/javascript" src="js/myscript.js"></script>';
@@ -33,8 +34,10 @@ function checkAccess(){
 function date_compare($a, $b){
     $t1 = strtotime($a->getEndDate());
     $t2 = strtotime($b->getEndDate());
-    if($t1=$t2) return 0;
-    return ($t1 > $t2) ? 1 : -1; 
+    if($t1==$t2){ 
+        return 0; 
+    }
+    return ($t1 < $t2) ? -1 : 1; 
 }    
 
 ?>
