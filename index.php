@@ -78,8 +78,8 @@
                         }
                     print '>';  
                     print'<select id="importance" name="importance">';
-                        print'<option value="low" checked >Low<option>';
-                        print'<option value="medium" >Medium<option>';
+                        print'<option value="low" checked >Low</option>';
+                        print'<option value="medium" >Medium</option>';
                         print'<option value="high" >High</option>';
                     print'Content :';
                     print'<textarea type="text" id="content" class"free_sans" name="content" rows="5" cols="60">';
